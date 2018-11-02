@@ -1,11 +1,51 @@
-body{
-    background-color: azure;
+body {
+  background-color: azure;
 }
 
-.active{
-    background-color: blue;
+.sections {
+  display: flex;
+  flex-direction: column;
 }
 
-.collapse{
-    background-color: plum;
+.section {
+  color: white;
+  font-family: sans-serif;
+  font-size: 30px;
+  margin: 10px;
+  padding-left: 10px;
+}
+
+.active {
+  background-color: #6848b4;
+  color: white;
+}
+
+.collapsible {
+  background-color: #9d3eae;
+  color: white;
+}
+
+.active:after {
+  content: "\02796";
+  color: white;
+  float: right;
+}
+.collapsible:after {
+  content: "\02795";
+  color: white;
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.section__content {
+  color: black;
+  text-align: center;
+  background-color: white;
+  font-family: serif;
+  font-size: 20px;
+  padding: 10px;
+  margin-left: -10px;
 }
