@@ -3,8 +3,7 @@ body {
 }
 
 .sections {
-  display: flex;
-  flex-direction: column;
+ display: block;
 }
 
 .section {
@@ -17,23 +16,23 @@ body {
 
 .active {
   background-color: #6848b4;
-  color: white;
+ 
 }
 
 .collapsible {
   background-color: #9d3eae;
-  color: white;
+  
 }
 
-.active:after {
+.active::after {
   content: "\02796";
-  color: white;
-  float: right;
+  margin-left: 50%;
+  margin-right: 50%;
 }
-.collapsible:after {
+.collapsible::after {
   content: "\02795";
-  color: white;
-  float: right;
+  margin-left: 10px;
+  
 }
 
 .hidden {
@@ -48,4 +47,22 @@ body {
   font-size: 20px;
   padding: 10px;
   margin-left: -10px;
+}
+
+
+@media (min-width: 640px){
+    .sections {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .active::after {
+        margin-right: 10px;
+        float: right;
+      }
+      .collapsible::after {
+        margin-right: 10px;
+        float: right;
+      }
+
 }
