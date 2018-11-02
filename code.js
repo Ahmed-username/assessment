@@ -1,26 +1,32 @@
-fetchData();
 
+fetchData();
+function expand(id){
+   const section = document.querySelector(`#${id}`)
+   section.classList.toggle("active")
+   section.classList.toggle("collapse")
+}
 
 
 function fetchData(){
 fetch('https://design.propcom.co.uk/buildtest/accordion-data.json')
 .then(response=>response.json())
-.then(data=>displayData(data.blocks))
+.then(json=>displayData(json.blocks))
 .catch(err => console.log(err))
 }
 
-function displayData(data){
-const sections = data.map(section=>{
+function displayData(json){
+const data = json.map((section,index)=>{
     return(
     `
-    <div>
+    <div id="section${index+1}" class="collapse" onclick="expand('section${index+1}')">
     ${section.heading}
     <p> ${section.content} </p>
     </div>
     `
     );
 })
-console.log("data", sections)
-document.querySelector('.sections').innerHTML = sections;
+
+const sections = document.querySelector('.sections')
+sections.innerHTML = data;
 
 }
